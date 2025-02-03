@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="image-bg">
+    <img src="login_img.png" alt="login-image">
+  </div>
+  <div class="login-container">
+    <div class="header">
+      <img src="Logo.svg" class="logo" alt="logo">
+      <button routerLink="signup" class="header-btn">Signup</button>
+    </div>
+
+    <form class="form-group" [formGroup]="signinForm" (ngSubmit)="onSignin()">
+      <div class="heading">
+        <p>Welcome back!</p>
+        <h3>Sign in to your account</h3>
+      </div>
+      <div class="form-control">
+        <label for="email">Email <span>*</span></label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          formControlName="email"
+          required
+          id="email"
+        >
+        <div
+          class="error"
+          *ngIf="getControl('email')?.invalid && (getControl('email')?.touched || getControl('email')?.dirty)"
+        >
+          <div *ngIf="getControl('email')?.errors?.['required']">email is required</div>
+          <div *ngIf="getControl('email')?.errors?.['email']">invalid email</div>
+        </div>
+      </div>
+      <div class="form-control passsword">
+        <label for="password">Password <span>*</span></label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Enter your password"
+          formControlName="password"
+          required
+          id="password"
+        >
+        <div
+          class="eye-icon"
+          (click)="toggleShowPassword()"
+          (keyup.enter)="toggleShowPassword()"
+          tabindex="0"
+        >
+          <img src="{{showPassword ? 'eye-open.svg' : 'eye-close.svg'}}" alt="eye-icon">
+        </div>
+        <div
+          class="error"
+          *ngIf="getControl('password')?.invalid && (getControl('password')?.touched || getControl('password')?.dirty)"
+        >
+          <div *ngIf="getControl('password')?.errors?.['required']">password is required</div>
+          <div *ngIf="getControl('password')?.invalid && signinForm.get('password')?.touched">password is not strong enough</div>
+        </div>
+      </div>
+      <div class="remember-me">
+        <div class="check">
+          <input
+            type="checkbox"
+            id="remember-me"
+            name="remember-me"
+            class="checkbox"
+          >
+          <p>Remember Me</p>
+        </div>
+        <p class="forgot" routerLink="forgot-password">I forgot my password</p>
+      </div>
+      <button type="submit" [disabled]="signinForm.invalid">Signup</button>
+    </form>
+  </div>
+</div>

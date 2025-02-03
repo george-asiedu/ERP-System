@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="image-bg">
+    <img src="signup.jpg" alt="login-image">
+  </div>
+  <div class="login-container">
+    <div class="header">
+      <img src="Logo.svg" class="logo" alt="logo">
+      <button routerLink="" class="header-btn">Sign in</button>
+    </div>
+
+    <form class="form-group" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <h2>Create an account</h2>
+      <div class="form-control">
+        <label for="name">Role <span>*</span></label>
+        <select formControlName="role" id="role" required>
+          <option value="" disabled selected>Select a role</option>
+          <option value="Admin">Admin</option>
+          <option value="Employee">Employee</option>
+        </select>
+        <div
+          class="error"
+          *ngIf="getControl('role')?.invalid && (getControl('role')?.touched || getControl('role')?.dirty)"
+        >
+          <div *ngIf="getControl('role')?.errors?.['required']">role is required</div>
+        </div>
+      </div>
+      <div class="form-control">
+        <label for="name">Name <span>*</span></label>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          formControlName="name"
+          id="name"
+          required
+        >
+        <div
+          class="error"
+          *ngIf="getControl('name')?.invalid && (getControl('name')?.touched || getControl('name')?.dirty)"
+        >
+          <div *ngIf="getControl('name')?.errors?.['required']">name is required</div>
+            <div *ngIf="getControl('name')?.errors?.['name']">invalid name format</div>
+        </div>
+      </div>
+      <div class="form-control">
+        <label for="email">Email <span>*</span></label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          formControlName="email"
+          required
+          id="email"
+        >
+        <div
+          class="error"
+          *ngIf="getControl('email')?.invalid && (getControl('email')?.touched || getControl('email')?.dirty)"
+        >
+          <div *ngIf="getControl('email')?.errors?.['required']">email is required</div>
+          <div *ngIf="getControl('email')?.errors?.['email']">invalid email</div>
+        </div>
+      </div>
+      <div class="form-control passsword">
+        <label for="password">Password <span>*</span></label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Enter your password"
+          formControlName="password"
+          required
+          id="password"
+        >
+        <div
+          class="eye-icon"
+          (click)="toggleShowPassword()"
+          (keyup.enter)="toggleShowPassword()"
+          tabindex="0"
+        >
+          <img src="{{showPassword ? 'eye-open.svg' : 'eye-close.svg'}}" alt="eye-icon">
+        </div>
+        <div
+          class="error"
+          *ngIf="getControl('password')?.invalid && (getControl('password')?.touched || getControl('password')?.dirty)"
+        >
+          <div *ngIf="getControl('password')?.errors?.['required']">password is required</div>
+          <div *ngIf="getControl('password')?.invalid && signupForm.get('password')?.touched">password is not strong enough</div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="signupForm.invalid">Signup</button>
+    </form>
+  </div>
+</div>
