@@ -95,7 +95,7 @@ module.exports = tseslint.config(
           accessibility: "explicit",
         },
       ],
-      complexity: ["error", 5],
+      complexity: ["error", 7],
       "max-classes-per-file": ["error", 1],
       eqeqeq: ["error", "always"],
       indent: ["error", 2],
