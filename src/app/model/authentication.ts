@@ -12,7 +12,6 @@ export interface Login {
 }
 
 export interface ResetPassword {
-  email: string;
   newPassword: string;
   confirmPassword: string;
 }
@@ -23,12 +22,10 @@ export interface ForgotPassword {
 
 export interface TwoFactorAuth {
   twoFactorCode: string;
-  email: string;
 }
 
 export interface VerifyEmail {
   verificationCode: string;
-  email: string;
 }
 
 export interface RefreshToken {
