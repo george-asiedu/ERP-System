@@ -1,6 +1,9 @@
 /* eslint-disable @angular-eslint/prefer-standalone */
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { nameValidator } from '../../validators/nameValidator';
+import { emailValidator } from '../../validators/emailValidator';
+import { passwordValidator } from '../../validators/passwordValidator';
 // import { Signup } from '../../model/authentication';
 
 @Component({
@@ -16,9 +19,9 @@ export class SignupComponent {
   public constructor(private fb:FormBuilder) {
     this.signupForm = this.fb.group({
       role: ['', Validators.required],
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      name: ['', Validators.required, nameValidator()],
+      email: ['', Validators.required, emailValidator()],
+      password: ['', Validators.required, passwordValidator()]
     });
   }
 
