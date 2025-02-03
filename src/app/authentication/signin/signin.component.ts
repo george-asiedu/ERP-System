@@ -1,6 +1,8 @@
 /* eslint-disable @angular-eslint/prefer-standalone */
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { emailValidator } from '../../validators/emailValidator';
+import { passwordValidator } from '../../validators/passwordValidator';
 
 @Component({
   selector: 'app-signin',
@@ -14,9 +16,9 @@ export class SigninComponent {
 
   public constructor(private fb:FormBuilder) {
     this.signinForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      rememberMe: [false, Validators.required]
+      email: ['', Validators.required, emailValidator()],
+      password: ['', Validators.required, passwordValidator()],
+      rememberMe: false
     });
   }
 

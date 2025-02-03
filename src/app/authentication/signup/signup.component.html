@@ -38,7 +38,7 @@
           *ngIf="getControl('name')?.invalid && (getControl('name')?.touched || getControl('name')?.dirty)"
         >
           <div *ngIf="getControl('name')?.errors?.['required']">name is required</div>
-            <div *ngIf="getControl('name')?.errors?.['name']">invalid name format</div>
+          <div *ngIf="getControl('name')?.errors?.['invalidName']">must contain only alphabets</div>
         </div>
       </div>
       <div class="form-control">
@@ -55,7 +55,8 @@
           *ngIf="getControl('email')?.invalid && (getControl('email')?.touched || getControl('email')?.dirty)"
         >
           <div *ngIf="getControl('email')?.errors?.['required']">email is required</div>
-          <div *ngIf="getControl('email')?.errors?.['email']">invalid email</div>
+          <div *ngIf="getControl('email')?.errors?.['invalidDomain']">Email domain is not allowed</div>
+          <div *ngIf="getControl('email')?.errors?.['invalidEmail']">Invalid email format</div>
         </div>
       </div>
       <div class="form-control passsword">
@@ -80,7 +81,7 @@
           *ngIf="getControl('password')?.invalid && (getControl('password')?.touched || getControl('password')?.dirty)"
         >
           <div *ngIf="getControl('password')?.errors?.['required']">password is required</div>
-          <div *ngIf="getControl('password')?.invalid && signupForm.get('password')?.touched">password is not strong enough</div>
+          <div *ngIf="getControl('password')?.errors?.['invalidPassword']">Password is not strong enough</div>
         </div>
       </div>
       <button type="submit" [disabled]="signupForm.invalid">Signup</button>

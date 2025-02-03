@@ -8,7 +8,7 @@ export interface Signup {
 export interface Login {
   email: string;
   password: string;
-  rememberMe: boolean;
+  rememberMe?: boolean;
 }
 
 export interface ResetPassword {
