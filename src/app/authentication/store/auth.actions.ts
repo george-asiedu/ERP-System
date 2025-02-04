@@ -1,7 +1,7 @@
 import {createActionGroup, emptyProps, props} from '@ngrx/store';
 import {
   AuthResponse,
-  ForgotPassword,
+  ForgotPassword, RefreshTokenResponse,
   ResetPassword, Signin, SigninResponse,
   Signup,
   SignupResponse,
@@ -13,13 +13,17 @@ export const authActions = createActionGroup({
   events: {
     'Signup': props<{ user: Signup }>(),
     'Signin': props<{ user: Signin }>(),
-    'VerifyTwoFactor': props<{ twoFactorCode: TwoFactorAuth }>(),
-    'ForgotPassword': props<{ user: ForgotPassword }>(),
-    'VerifyResetCode': props<{ verificationCode: VerifyResetCode }>(),
-    'ResetPassword': props<{ user: ResetPassword }>(),
+    'Verify Account': props<{ twoFactorCode: TwoFactorAuth }>(),
+    'Forgot Password': props<{ user: ForgotPassword }>(),
+    'Verify Reset Code': props<{ verificationCode: VerifyResetCode }>(),
+    'Reset Password': props<{ user: ResetPassword }>(),
     'Signup Success': props<{ data: SignupResponse }>(),
     'Signin Success': props<{ data: SigninResponse }>(),
-    'Authentication Success': props<{ message: AuthResponse }>(),
+    'Verify Account Success': props<{ message: AuthResponse }>(),
+    'Forgot Password Success': props<{ message: AuthResponse }>(),
+    'Verify Reset Code Success': props<{ message: AuthResponse }>(),
+    'Reset Password Success': props<{ message: AuthResponse }>(),
+    'RefreshToken Success': props<{ data: RefreshTokenResponse }>(),
     'Authentication Failure': props<{ error: string }>(),
     'Logout': emptyProps()
   }

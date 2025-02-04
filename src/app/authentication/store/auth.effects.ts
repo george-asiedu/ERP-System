@@ -47,13 +47,13 @@ export const twoFactorAuthEffect = createEffect(
     store = inject(Store<AuthState>)
   ) => {
     return actions$.pipe(
-      ofType(authActions.verifyTwoFactor),
+      ofType(authActions.verifyAccount),
       withLatestFrom(store.select(selectAccessToken)),
       filter(([, token]) => !!token),
       switchMap(([{twoFactorCode}, token]) =>
         authService.twoFactorAuthentication(twoFactorCode, token as string).pipe(
           mapResponse({
-            next: (response) => authActions.authenticationSuccess({message: response}),
+            next: (response) => authActions.verifyAccountSuccess({message: response}),
             error: (error: string) => authActions.authenticationFailure({error})
           })
         )
@@ -69,7 +69,7 @@ export const forgotPasswordEffect = createEffect(
       switchMap(({user}) =>
         authService.forgotPassword(user).pipe(
           mapResponse({
-            next: (response) => authActions.authenticationSuccess({message: response}),
+            next: (response) => authActions.forgotPasswordSuccess({message: response}),
             error: (error: string) => authActions.authenticationFailure({error})
           })
         )
@@ -91,7 +91,7 @@ export const verifyResetCodeEffect = createEffect(
       switchMap(([{verificationCode}, token]) =>
         authService.verifyResetCode(verificationCode, token as string).pipe(
           mapResponse({
-            next: (response) => authActions.authenticationSuccess({message: response}),
+            next: (response) => authActions.verifyResetCodeSuccess({message: response}),
             error: (error: string) => authActions.authenticationFailure({error})
           })
         )
@@ -113,7 +113,7 @@ export const resetPasswordEffect = createEffect(
       switchMap(([{user}, token]) =>
         authService.resetPassword(user, token as string).pipe(
           mapResponse({
-            next: (response) => authActions.authenticationSuccess({message: response}),
+            next: (response) => authActions.resetPasswordSuccess({message: response}),
             error: (error: string) => authActions.authenticationFailure({error})
           })
         )

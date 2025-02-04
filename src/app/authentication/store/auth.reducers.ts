@@ -29,7 +29,7 @@ export const authenticationFeature = createFeature({
       ...state,
       isLoading: true,
     })),
-    on(authActions.verifyTwoFactor, (state) => ({
+    on(authActions.verifyAccount, (state) => ({
       ...state,
       isLoading: true,
     })),
@@ -49,11 +49,34 @@ export const authenticationFeature = createFeature({
       data: { type: 'signin' as const, response: data },
       error: null,
     })),
-    on(authActions.authenticationSuccess, (state, {message}) => ({
+    on(authActions.verifyAccountSuccess, (state, {message}) => ({
       ...state,
       isLoading: false,
       error: null,
       message
+    })),
+    on(authActions.forgotPasswordSuccess, (state, {message}) => ({
+      ...state,
+      isLoading: false,
+      error: null,
+      message
+    })),on(authActions.verifyResetCodeSuccess, (state, {message}) => ({
+      ...state,
+      isLoading: false,
+      error: null,
+      message
+    })),
+    on(authActions.resetPasswordSuccess, (state, {message}) => ({
+      ...state,
+      isLoading: false,
+      error: null,
+      message
+    })),
+    on(authActions.refreshTokenSuccess, (state, {data}) => ({
+      ...state,
+      isLoading: false,
+      error: null,
+      data: { type: 'refreshToken' as const, response: data }
     })),
     on(authActions.authenticationFailure, (state, {error}) => ({
       ...state,
