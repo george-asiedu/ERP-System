@@ -5,7 +5,7 @@ export interface Signup {
   role: string;
 }
 
-export interface Login {
+export interface Signin {
   email: string;
   password: string;
   rememberMe?: boolean;
@@ -24,10 +24,41 @@ export interface TwoFactorAuth {
   twoFactorCode: string;
 }
 
-export interface VerifyEmail {
+export interface VerifyResetCode {
   verificationCode: string;
 }
 
 export interface RefreshToken {
   refreshToken: string;
+}
+
+export interface SigninResponse {
+  message: string;
+  data: {
+    accessToken: string;
+    refreshToken: string;
+  }
+}
+
+export interface SignupResponse {
+  message: string;
+  data: {
+    id: number;
+    name: string;
+    email: string;
+    role: string;
+    isVerified: boolean;
+  }
+}
+
+export interface AuthResponse {
+  message: string;
+}
+
+export interface RefreshTokenResponse {
+  message: string;
+  data: {
+    accessToken: string;
+    refreshToken: string;
+  }
 }
