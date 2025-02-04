@@ -11,6 +11,10 @@ import {provideSpinnerConfig} from 'ngx-spinner';
 import { NgToastModule } from 'ng-angular-popup';
 import * as AuthEffects from './authentication/store/auth.effects';
 import {authenticationFeature} from './authentication/store/auth.reducers';
+import {appStoreFeature} from './app-store/app.reducers';
+import * as RouteEffects from './app-store/routes.effects';
+import * as ToastEffects from './app-store/toast.effects';
+import * as SpinnerEffects from './app-store/spinner.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,7 +26,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore(),
     provideState(authenticationFeature),
-    provideEffects([AuthEffects]),
+    provideState(appStoreFeature),
+    provideEffects([AuthEffects, RouteEffects, ToastEffects, SpinnerEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
   ]
 };
