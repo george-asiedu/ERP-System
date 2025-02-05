@@ -1,8 +1,13 @@
 /* eslint-disable @angular-eslint/prefer-standalone */
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { emailValidator } from '../../validators/emailValidator';
 import { passwordValidator } from '../../validators/passwordValidator';
+import {Store} from '@ngrx/store';
+import {AuthState} from '../store/auth.state';
+import {selectIsLoading} from '../store/auth.selectors';
+import {Signin} from '../../model/authentication';
+import {authActions} from '../store/auth.actions';
 
 @Component({
   selector: 'app-signin',
@@ -13,6 +18,8 @@ import { passwordValidator } from '../../validators/passwordValidator';
 export class SigninComponent {
   public signinForm: FormGroup;
   public showPassword = false;
+  private store = inject(Store<AuthState>);
+  public isLoading = this.store.selectSignal(selectIsLoading);
 
   public constructor(private fb:FormBuilder) {
     this.signinForm = this.fb.group({
@@ -25,7 +32,8 @@ export class SigninComponent {
   public onSignin() {
     if(this.signinForm.invalid) return;
 
-    // const user: Signup = this.signupForm.value;
+    const user: Signin = this.signinForm.value;
+    this.store.dispatch(authActions.signin({user}));
     this.signinForm.reset();
   }
 
