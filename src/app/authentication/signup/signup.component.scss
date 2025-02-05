@@ -1,185 +1,161 @@
+@import '../../../styles.scss';
+
 .container {
-    max-width: 100%;
-    overflow: hidden;
-    height: 100vh;
+  @include container;
 
-    .loading {
-        color: #fff;
+  .loading {
+    color: var(--red);
+    font-size: 1.25rem;
+  }
+
+  .image-bg {
+    background-color: var(--black);
+    height: 100%;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+      opacity: 0.4;
+    }
+  }
+
+  .login-container {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    background-color: var(--form-background);
+    width: 28.125rem;
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 0.375rem;
+
+    .header {
+      @include justify-between;
+      margin-bottom: 0.625rem;
+
+      .logo {
+        max-width: 3.125rem;
+        margin-bottom: 0.625rem;
+      }
+
+      .header-btn {
+        @include header_btn;
+
+        &:hover {
+          background-color: var(--primary);
+          border: none;
+          color: var(--white);
+        }
+      }
+    }
+
+    .form-group {
+      @include flex-column;
+      gap: 0.75rem;
+
+      h2 {
+        color: var(--black);
+        font-weight: 700;
         font-size: 1.25rem;
-    }
+        text-align: center;
+      }
 
-    .image-bg {
-        background-color: #1A1A1A;
-        height: 100%;
+      .form-control {
+        @include flex-column;
+        gap: 0.25rem;
+        position: relative;
 
-        img {
-            width: 100%;
-            object-fit: cover;
-            height: 100%;
-            opacity: 0.4;
-        }
-    }
-
-    .login-container {
-        position: absolute;
-        top: 4%;
-        right: 5%;
-        background-color: #f9fafb;
-        width: 28.125rem;
-        padding: 1.5rem 2rem;
-        border: none;
-        border-radius: 0.375rem;
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-
-            .logo {
-                max-width: 3.125rem;
-                margin-bottom: 0.625rem;
-            }
-
-            .header-btn {
-                background-color: transparent;
-                color: #14ADD6;
-                padding: 0.375rem 1rem;
-                border: 1px solid #14ADD6;
-                border-radius: 0.375rem;
-                cursor: pointer;
-                font-weight: 500;
-                transition: all 0.5s ease;
-
-                &:hover {
-                    background-color: #14ADD6;
-                    border: none;
-                    color: #fff;
-                }
-            }
+        label {
+          font-size: 0.875rem;
+          font-weight: 500;
+          span {
+            color: var(--red);
+          }
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+        input {
+          padding: 0.625rem 0.875rem;
+          border: 1px solid var(--border-color);
+          border-radius: 0.375rem;
+          color: var(--black);
+          caret-color: var(--secondary);
 
-            h2 {
-                color: #1A1A1A;
-                font-weight: 700;
-                font-size: 1.25rem;
-                text-align: center;
-            }
+          &:placeholder-shown {
+            font-size: 0.875rem;
+          }
 
-            .form-control {
-                display: flex;
-                flex-direction: column;
-                gap: 0.25rem;
-                position: relative;
+          &:focus {
+            outline: none;
+            border: 1px solid var(--black);
+          }
 
-                label {
-                    font-size: 0.875rem;
-                    font-weight: 500;
-                    span {
-                        color: #EB664E;
-                    }
-                }
+          &:hover {
+            cursor: pointer;
+            border: 1px solid var(--black);
+          }
 
-                input {
-                    padding: 0.625rem 0.875rem;
-                    border: 1px solid #d0d5dd;
-                    border-radius: 0.375rem;
-                    color: #1A1A1A;
-                    caret-color: #384295;
-
-                    &:placeholder-shown {
-                        font-size: 0.875rem;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        border: 1px solid #1A1A1A;
-                    }
-
-                    &:hover {
-                      cursor: pointer;
-                      border: 1px solid #1A1A1A;
-                    }
-
-                    &:valid {
-                      border: 1.5px solid #039855;
-                    }
-                }
-
-                select {
-                  padding: 0.625rem 0.875rem;
-                  border: 1px solid #d0d5dd;
-                  border-radius: 0.375rem;
-                  color: #1A1A1A;
-                  appearance: none;
-                  cursor: pointer;
-                  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-                  background-image: url('../../../../public/chevron_down.svg');
-                  background-repeat: no-repeat;
-                  background-position: right 0.75rem center;
-                  background-size: 0.75rem;
-
-                  &:focus {
-                    outline: none;
-                    border: 1px solid #1A1A1A;
-                  }
-
-                  &:hover {
-                    border: 1px solid #1A1A1A;
-                  }
-
-                  &:valid {
-                    border: 1.5px solid #039855;
-                  }
-                }
-
-                .error {
-                    color: #EB664E;
-                    font-size: 0.75rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-
-                .eye-icon {
-                    position: absolute;
-                    top: 50%;
-                    right: 0;
-                    cursor: pointer;
-                    max-width: 2.5rem;
-
-                    img {
-                        width: 50%;
-                    }
-                }
-            }
-
-            button {
-                margin-top: 0.625rem;
-                background: linear-gradient(90deg, #14ADD6, #384295);
-                color: #fff;
-                padding: 0.75rem 0.875rem;
-                border: none;
-                border-radius: 0.375rem;
-                cursor: pointer;
-                font-weight: 500;
-
-                &:hover {
-                    background: linear-gradient(90deg, #384295, #14ADD6);
-                }
-
-                &:disabled {
-                  background: linear-gradient(90deg, #757575, #d0d5dd);
-                    cursor: not-allowed;
-                }
-            }
+          &:valid {
+            border: 1.5px solid var(--success);
+          }
         }
+
+        select {
+          padding: 0.625rem 0.875rem;
+          border: 1px solid var(--border-color);
+          border-radius: 0.375rem;
+          color: var(--black);
+          appearance: none;
+          cursor: pointer;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
+          background-image: url('../../../../public/chevron_down.svg');
+          background-repeat: no-repeat;
+          background-position: right 0.75rem center;
+          background-size: 0.75rem;
+
+          &:focus {
+            outline: none;
+            border: 1px solid var(--black);
+          }
+
+          &:hover {
+            border: 1px solid var(--black);
+          }
+
+          &:valid {
+            border: 1.5px solid var(--success);
+          }
+        }
+
+        .error {
+          color: var(--red);
+          font-size: 0.75rem;
+          @include justify-between;
+        }
+
+        .eye-icon {
+          @include eye_position;
+
+          img {
+            width: 50%;
+          }
+        }
+      }
+
+      button {
+        @include auth_btn;
+
+        &:hover {
+          background: linear-gradient(90deg, var(--secondary), var(--primary));
+        }
+
+        &:disabled {
+          background: linear-gradient(90deg, var(--disable-color), var(--border-color));
+          cursor: not-allowed;
+        }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 600px) {

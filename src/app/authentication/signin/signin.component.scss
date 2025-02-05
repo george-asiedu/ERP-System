@@ -1,189 +1,154 @@
+@import '../../../styles.scss';
+
 .container {
-    max-width: 100%;
-    overflow: hidden;
-    height: 100vh;
+  @include container;
 
-    .loading {
-        color: #fff;
-        font-size: 1.25rem;
+  .loading {
+    color: var(--red);
+    font-size: 1.25rem;
+  }
+
+  .image-bg {
+    background-color: var(--black);
+    height: 100%;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+      opacity: 0.4;
+    }
+  }
+
+  .login-container {
+    @include form_container;
+
+    .header {
+      @include justify-between;
+      margin-bottom: 0.625rem;
+
+      .logo {
+        max-width: 3.125rem;
+        margin-bottom: 0.625rem;
+      }
+
+      .header-btn {
+        @include header_btn;
+
+        &:hover {
+          background-color: var(--primary);
+          border: none;
+          color: var(--white);
+        }
+      }
     }
 
-    .image-bg {
-        background-color: #1A1A1A;
-        height: 100%;
+    .form-group {
+      @include flex-column;
+      gap: 0.75rem;
 
-        img {
-            width: 100%;
-            object-fit: cover;
-            height: 100%;
-            opacity: 0.4;
+      .heading {
+        p {
+          font-size: 0.875rem;
+          text-align: left;
         }
+
+        h2 {
+          color: var(--black);
+          font-weight: 700;
+          font-size: 1.25rem;
+        }
+      }
+
+      .form-control {
+        @include flex-column;
+        gap: 0.25rem;
+        position: relative;
+
+        label {
+          font-size: 0.875rem;
+          font-weight: 500;
+          span {
+            color: var(--red);
+          }
+        }
+
+        input {
+          padding: 0.625rem 0.875rem;
+          border: 1px solid var(--border-color);
+          border-radius: 0.375rem;
+          color: var(--black);
+          caret-color: var(--secondary);
+
+          &:placeholder-shown {
+            font-size: 0.875rem;
+          }
+
+          &:focus {
+            outline: none;
+            border: 1px solid var(--black);
+          }
+
+          &:hover {
+            cursor: pointer;
+            border: 1px solid var(--black);
+          }
+
+          &:valid {
+            border: 1.5px solid var(--success);
+          }
+        }
+
+        .error {
+          @include justify-between;
+          color: var(--red);
+          font-size: 0.75rem;
+        }
+
+        .eye-icon {
+          @include eye_position;
+
+          img {
+            width: 50%;
+          }
+        }
+      }
+
+      button {
+        @include auth_btn;
+
+        &:hover {
+          background: linear-gradient(90deg, var(--secondary), var(--primary));
+        }
+
+        &:disabled {
+          background: linear-gradient(90deg, var(--disable-color), var(--border-color));
+          cursor: not-allowed;
+        }
+      }
+
+      .remember-me {
+        @include justify-between;
+        font-size: 0.813rem;
+        font-weight: 500;
+
+        .check {
+          @include justify-between;
+          gap: 0.125rem;
+
+          .checkbox {
+            width: 1.875rem;
+            cursor: pointer;
+          }
+        }
+
+        .forgot {
+          color: var(--primary);
+          cursor: pointer;
+        }
+      }
     }
-
-    .login-container {
-        position: absolute;
-        top: 12%;
-        right: 5%;
-        background-color: #f9fafb;
-        width: 28.125rem;
-        padding: 1.5rem 2rem;
-        border: none;
-        border-radius: 0.375rem;
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-
-            .logo {
-                max-width: 3.125rem;
-                margin-bottom: 0.625rem;
-            }
-
-            .header-btn {
-                background-color: transparent;
-                color: #14ADD6;
-                padding: 0.375rem 1rem;
-                border: 1px solid #14ADD6;
-                border-radius: 0.375rem;
-                cursor: pointer;
-                font-weight: 500;
-                transition: all 0.5s ease;
-
-                &:hover {
-                    background-color: #14ADD6;
-                    border: none;
-                    color: #fff;
-                }
-            }
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-
-            .heading {
-                p {
-                    font-size: 0.875rem;
-                    text-align: left;
-                }
-
-                h2 {
-                    color: #1A1A1A;
-                    font-weight: 700;
-                    font-size: 1.25rem;
-                }
-            }
-
-            .form-control {
-                display: flex;
-                flex-direction: column;
-                gap: 0.25rem;
-                position: relative;
-
-                label {
-                    font-size: 0.875rem;
-                    font-weight: 500;
-                    span {
-                        color: #EB664E;
-                    }
-                }
-
-                input {
-                    padding: 0.625rem 0.875rem;
-                    border: 1px solid #d0d5dd;
-                    border-radius: 0.375rem;
-                    color: #1A1A1A;
-                    caret-color: #384295;
-
-                    &:placeholder-shown {
-                        font-size: 0.875rem;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        border: 1px solid #1A1A1A;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-                        border: 1px solid #1A1A1A;
-                    }
-
-                    &:valid {
-                        border: 1.5px solid #039855;
-                    }
-                }
-
-                .error {
-                    color: #EB664E;
-                    font-size: 0.75rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-
-                .eye-icon {
-                    position: absolute;
-                    top: 50%;
-                    right: 0;
-                    cursor: pointer;
-                    max-width: 2.5rem;
-
-                    img {
-                        width: 50%;
-                    }
-                }
-            }
-
-            button {
-                margin-top: 0.625rem;
-                background: linear-gradient(90deg, #14ADD6, #384295);
-                color: #fff;
-                padding: 0.75rem 0.875rem;
-                border: none;
-                border-radius: 0.375rem;
-                cursor: pointer;
-                font-weight: 500;
-
-                &:hover {
-                    background: linear-gradient(90deg, #384295, #14ADD6);
-                }
-
-                &:disabled {
-                    background: linear-gradient(90deg, #757575, #d0d5dd);
-                    cursor: not-allowed;
-                }
-            }
-
-            .remember-me {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                font-size: 0.813rem;
-                font-weight: 500;
-
-                .check {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 0.125rem;
-
-                    .checkbox {
-                        width: 1.875rem;
-                        cursor: pointer;
-                    }
-                }
-
-                .forgot {
-                    color: #14ADD6;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 600px) {
