@@ -21,7 +21,6 @@ export class SignupComponent {
   public signupForm: FormGroup;
   public showPassword = false;
   public isLoading = this.store.selectSignal(selectIsLoading);
-  public logoImg = 'public/Logo.svg';
 
   public constructor(private fb:FormBuilder) {
     this.signupForm = this.fb.group({
