@@ -1,7 +1,7 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store';
 import {AuthState} from './auth.state';
 
-export const authSelector = createFeatureSelector<AuthState>('auth');
+export const authSelector = createFeatureSelector<AuthState>('Auth');
 
 export const getAccessToken = (state: AuthState): string | null => {
   if (state.data?.type === 'signin') {
