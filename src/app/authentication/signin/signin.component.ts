@@ -23,8 +23,8 @@ export class SigninComponent {
 
   public constructor(private fb:FormBuilder) {
     this.signinForm = this.fb.group({
-      email: ['', Validators.required, emailValidator()],
-      password: ['', Validators.required, passwordValidator()],
+      email: ['', [Validators.required, emailValidator()]],
+      password: ['', [Validators.required, passwordValidator()]],
       rememberMe: false
     });
   }
