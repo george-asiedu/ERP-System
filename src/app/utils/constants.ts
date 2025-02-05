@@ -7,4 +7,4 @@ export const constants = {
   unauthorizedAccess: 'Unauthorized route access, please login',
   accessDenied: 'Access denied',
   storageKey: 'appStoreState'
-}
+};
