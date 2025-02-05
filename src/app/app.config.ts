@@ -15,11 +15,13 @@ import {appStoreFeature} from './app-store/app.reducers';
 import * as RouteEffects from './app-store/routes.effects';
 import * as ToastEffects from './app-store/toast.effects';
 import * as SpinnerEffects from './app-store/spinner.effects';
+import {authInterceptor} from './interceptor/auth/auth.interceptor';
+import {refreshTokenInterceptor} from './interceptor/refresh_token/refresh-token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([])),
+    provideHttpClient(withInterceptors([authInterceptor, refreshTokenInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideSpinnerConfig({type: 'ball-scale-pulse'}),
     importProvidersFrom(NgToastModule),
