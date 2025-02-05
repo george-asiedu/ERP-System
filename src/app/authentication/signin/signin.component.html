@@ -1,4 +1,14 @@
 <div class="container">
+  @if (isLoading()) {
+    <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.8)"
+      size="medium"
+      color="#14ADD6"
+      type="ball-scale-pulse"
+    >
+      <p style="color: #ff0050; font-size: 20px">Loading</p>
+    </ngx-spinner>
+  }
   <div class="image-bg">
     <img src="login_img.png" alt="login-image">
   </div>
@@ -31,7 +41,7 @@
           <div *ngIf="getControl('email')?.errors?.['invalidEmail']">Invalid email format</div>
         </div>
       </div>
-      <div class="form-control passsword">
+      <div class="form-control">
         <label for="password">Password <span>*</span></label>
         <input
           [type]="showPassword ? 'text' : 'password'"
@@ -46,7 +56,10 @@
           (keyup.enter)="toggleShowPassword()"
           tabindex="0"
         >
-          <img src="{{showPassword ? 'eye-open.svg' : 'eye-close.svg'}}" alt="eye-icon">
+          <img
+            src="{{showPassword ? 'eye-open.svg' : 'eye-close.svg'}}"
+            alt="eye-icon"
+          >
         </div>
         <div
           class="error"
@@ -68,7 +81,12 @@
         </div>
         <p class="forgot" routerLink="forgot-password">I forgot my password</p>
       </div>
-      <button type="submit" [disabled]="signinForm.invalid">Signup</button>
+      <button
+        type="submit"
+        [disabled]="signinForm.invalid || isLoading()"
+      >
+        Signup
+      </button>
     </form>
   </div>
 </div>
