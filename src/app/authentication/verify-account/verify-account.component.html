@@ -1,0 +1,41 @@
+<div class="container">
+  @if (isLoading$ | async) {
+    <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.8)"
+      size="medium"
+      color="#14ADD6"
+      type="ball-scale-pulse"
+    >
+      <p class="loading">Loading</p>
+    </ngx-spinner>
+  }
+  <div class="image-bg">
+    <img src="2FA.jpeg" alt="two_factor_image">
+  </div>
+  <div class="form-container">
+    <img src="Logo.svg" class="logo" alt="logo">
+    <form class="form-group" [formGroup]="twoFactorAuthForm" (ngSubmit)="verifyAccount()">
+      <p>2FA</p>
+      <h2>Please enter the 2FA code <br> sent to your email</h2>
+      <div class="form-control">
+        <input
+          *ngFor="let _ of codeInputs; let index = index"
+          type="text"
+          maxlength="1"
+          id="twoFactorCode{{ index }}"
+          (input)="updateCode($event, index)"
+          (keydown.backspace)="handleBackspace($event, index)"
+          [value]="getDigit(index)"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        [disabled]="twoFactorAuthForm.invalid || (isLoading$ | async)"
+        class="verify-btn"
+      >
+        Verify
+      </button>
+    </form>
+  </div>
+</div>
