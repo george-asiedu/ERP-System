@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { selectIsLoading } from '../store/auth.selectors';
 import { AuthState } from '../store/auth.state';
 import { Store } from '@ngrx/store';
+import {twoFactorCodeValidator} from '../../validators/twoFactorCodeValidator';
 
 @Component({
   selector: 'app-verify-account',
@@ -14,13 +15,13 @@ import { Store } from '@ngrx/store';
 })
 export class VerifyAccountComponent {
   private store = inject(Store<AuthState>);
-  public isLoading$ = this.store.select(selectIsLoading);
+  public isLoading = this.store.selectSignal(selectIsLoading);
   public twoFactorAuthForm: FormGroup;
   public codeInputs = Array(6).fill(0);
 
   public constructor(private fb:FormBuilder) {
     this.twoFactorAuthForm = this.fb.group({
-      twoFactorCode: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]]
+      twoFactorCode: ['', [Validators.required, twoFactorCodeValidator()]]
     });
   }
 
@@ -61,5 +62,9 @@ export class VerifyAccountComponent {
         if (prevInput) prevInput.focus();
       }
     }
+  }
+
+  public getControl(value: string) {
+    return this.twoFactorAuthForm.get(value);
   }
 }

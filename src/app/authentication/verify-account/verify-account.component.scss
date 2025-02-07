@@ -64,6 +64,21 @@
             outline: none;
             border-color: var(--black);
           }
+
+          &:hover {
+            cursor: pointer;
+            border: 1px solid var(--black);
+          }
+
+          &:valid {
+            border: 1.5px solid var(--success);
+          }
+        }
+
+        .error {
+          color: var(--red);
+          font-size: 0.75rem;
+          @include justify-between;
         }
       }
       .verify-btn {

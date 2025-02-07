@@ -1,5 +1,5 @@
 <div class="container">
-  @if (isLoading$ | async) {
+  @if (isLoading()) {
     <ngx-spinner
       bdColor="rgba(0, 0, 0, 0.8)"
       size="medium"
@@ -28,10 +28,17 @@
           [value]="getDigit(index)"
           required
         />
+        <div
+          class="error"
+          *ngIf="getControl('twoFactorCode')?.invalid && (getControl('twoFactorCode')?.touched || getControl('twoFactorCode')?.dirty)"
+        >
+          <div *ngIf="getControl('twoFactorCode')?.errors?.['required']">Two Factor Auth Code is required</div>
+          <div *ngIf="getControl('twoFactorCode')?.errors?.['invalidCode']">Please enter a valid 6-digit code</div>
+        </div>
       </div>
       <button
         type="submit"
-        [disabled]="twoFactorAuthForm.invalid || (isLoading$ | async)"
+        [disabled]="twoFactorAuthForm.invalid || isLoading()"
         class="verify-btn"
       >
         Verify
