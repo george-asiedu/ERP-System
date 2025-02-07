@@ -8,6 +8,7 @@ import { SigninComponent } from './signin/signin.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     SignupComponent,
     SigninComponent,
     VerifyAccountComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
