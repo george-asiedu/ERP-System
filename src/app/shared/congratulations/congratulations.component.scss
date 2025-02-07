@@ -1,0 +1,24 @@
+@use '../../../styles.scss' as *;
+
+.container {
+  @include container;
+  @include flex-column;
+  @include justify-center;
+  gap: 1rem;
+
+  img {
+    width: 25%;
+    height: auto;
+  }
+
+  h4 {
+    color: var(--black);
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+
+  button {
+    width: 9.375rem;
+    @include auth_btn;
+  }
+}
