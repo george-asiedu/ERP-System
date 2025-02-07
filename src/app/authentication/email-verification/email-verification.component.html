@@ -1,0 +1,52 @@
+<div class="container">
+  @if (isLoading()) {
+    <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.8)"
+      size="medium"
+      color="#14ADD6"
+      type="ball-scale-pulse"
+    >
+      <p class="loading">Loading</p>
+    </ngx-spinner>
+  }
+  <div class="image-bg">
+    <img src="verify_email.jpeg" alt="verify_email_image">
+  </div>
+  <div class="form-container">
+    <img src="Logo.svg" class="logo" alt="logo">
+    <form class="form-group" [formGroup]="emailVerificationForm" (ngSubmit)="emailVerification()">
+      <div class="heading">
+        <p>Password recovery.</p>
+        <h2>Email verification</h2>
+        <p>Kindly enter the 6 digit code that has been sent to your email address.</p>
+      </div>
+      <div class="form-control">
+        <input
+          *ngFor="let _ of codeInputs; let index = index"
+          type="text"
+          maxlength="1"
+          formControlName="verificationCode"
+          id="verificationCode{{ index }}"
+          (input)="updateCode($event, index)"
+          (keydown.backspace)="handleBackspace($event, index)"
+          [value]="getDigit(index)"
+          required
+        />
+      </div>
+      <div
+        class="error"
+        *ngIf="getControl('verificationCode')?.invalid && (getControl('verificationCode')?.touched || getControl('verificationCode')?.dirty)"
+      >
+        <div *ngIf="getControl('verificationCode')?.errors?.['required']">Verification code is required</div>
+        <div *ngIf="getControl('verificationCode')?.errors?.['invalidCode']">Please enter a valid 6-digit code</div>
+      </div>
+      <button
+        type="submit"
+        [disabled]="emailVerificationForm.invalid || isLoading()"
+        class="verify-btn"
+      >
+        Verify
+      </button>
+    </form>
+  </div>
+</div>

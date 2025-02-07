@@ -71,16 +71,17 @@
           }
 
           &:valid {
-            border: 1.5px solid var(--success);
+            border: 2px solid var(--success);
           }
         }
-
-        .error {
-          color: var(--red);
-          font-size: 0.75rem;
-          @include justify-between;
-        }
       }
+
+      .error {
+        color: var(--red);
+        font-size: 0.75rem;
+        @include justify-between;
+      }
+
       .verify-btn {
         @include auth_btn;
 

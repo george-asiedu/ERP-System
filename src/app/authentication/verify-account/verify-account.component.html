@@ -22,19 +22,20 @@
           *ngFor="let _ of codeInputs; let index = index"
           type="text"
           maxlength="1"
+          formControlName="twoFactorCode"
           id="twoFactorCode{{ index }}"
           (input)="updateCode($event, index)"
           (keydown.backspace)="handleBackspace($event, index)"
           [value]="getDigit(index)"
           required
         />
-        <div
-          class="error"
-          *ngIf="getControl('twoFactorCode')?.invalid && (getControl('twoFactorCode')?.touched || getControl('twoFactorCode')?.dirty)"
-        >
-          <div *ngIf="getControl('twoFactorCode')?.errors?.['required']">Two Factor Auth Code is required</div>
-          <div *ngIf="getControl('twoFactorCode')?.errors?.['invalidCode']">Please enter a valid 6-digit code</div>
-        </div>
+      </div>
+      <div
+        class="error"
+        *ngIf="getControl('twoFactorCode')?.invalid && (getControl('twoFactorCode')?.touched || getControl('twoFactorCode')?.dirty)"
+      >
+        <div *ngIf="getControl('twoFactorCode')?.errors?.['required']">Two Factor Auth Code is required</div>
+        <div *ngIf="getControl('twoFactorCode')?.errors?.['invalidCode']">Please enter a valid 6-digit code</div>
       </div>
       <button
         type="submit"

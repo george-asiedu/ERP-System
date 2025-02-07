@@ -5,6 +5,7 @@ import { SigninComponent } from './signin/signin.component';
 import {VerifyAccountComponent} from './verify-account/verify-account.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {EmailVerificationComponent} from './email-verification/email-verification.component';
 
 const routes: Routes = [
   { path: '', component: SigninComponent, title: 'ERP System | Sign in' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'verify-account', component: VerifyAccountComponent, title: 'ERP System | Verify Account' },
   { path: 'forgot-password', component: ForgotPasswordComponent, title: 'ERP System | Forgot Password' },
   { path: 'reset-password', component: ResetPasswordComponent, title: 'ERP System | Reset Password' },
+  { path: 'verify-reset-code', component: EmailVerificationComponent, title: 'ERP System | Verify Reset Code' },
 ];
 
 @NgModule({
