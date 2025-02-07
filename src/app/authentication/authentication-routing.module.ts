@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import {VerifyAccountComponent} from './verify-account/verify-account.component';
 
 const routes: Routes = [
   { path: '', component: SigninComponent, title: 'ERP System | Sign in' },
-  { path: 'signup', component: SignupComponent, title: 'ERP System | Signup' }
+  { path: 'signup', component: SignupComponent, title: 'ERP System | Signup' },
+  { path: 'verify-account', component: VerifyAccountComponent, title: 'ERP System | VerifyAccount' }
 ];
 
 @NgModule({
