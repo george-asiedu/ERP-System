@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 import { CongratulationsComponent } from './congratulations/congratulations.component';
 import {RouterLink} from '@angular/router';
+import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 
 
 @NgModule({
   declarations: [
-    CongratulationsComponent
+    CongratulationsComponent,
+    ThemeSwitcherComponent
   ],
   imports: [
     CommonModule,
