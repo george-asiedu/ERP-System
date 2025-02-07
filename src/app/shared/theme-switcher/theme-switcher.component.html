@@ -1,0 +1,11 @@
+<button
+  type="button"
+  (click)="themeSwitcher()"
+  [attr.data-active-theme]=" isDark ? 'dark' : 'light' "
+>
+  @if (isDark) {
+    <img src="icon-dark-mode.svg" alt="icon-dark-mode">
+  } @else {
+    <img src="icon-light-mode.svg" alt="icon-light-mode">
+  }
+</button>
