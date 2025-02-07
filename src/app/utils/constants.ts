@@ -6,5 +6,7 @@ export const constants = {
   toastDuration: 5000,
   unauthorizedAccess: 'Unauthorized route access, please login',
   accessDenied: 'Access denied',
-  storageKey: 'appStoreState'
+  storageKey: 'appStoreState',
+  lightTheme: 'light',
+  darkTheme: 'dark',
 };
