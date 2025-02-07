@@ -58,7 +58,7 @@ export const resetPasswordRouteEffects = createEffect(
   (actions$ = inject(Actions), route = inject(Router)) => {
     return actions$.pipe(
       ofType(authActions.resetPasswordSuccess),
-      tap(() => route.navigateByUrl(''))
+      tap(() => route.navigateByUrl('/congratulations'))
     );
   },
   { functional: true, dispatch: false }
