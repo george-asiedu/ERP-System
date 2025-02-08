@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--white);
   overflow-x: hidden;
 }
 
@@ -113,6 +113,33 @@ img {
   cursor: pointer;
   font-weight: 500;
   transition: opacity 0.3s ease;
+}
+
+body[data-theme='dark'] {
+  background-color: var(--black);
+}
+
+body[data-theme='light'] {
+  --background-color: var(--white);
+  --color: var(--black);
+  --border: var(--border-color);
+  --status-hover: var(--header);
+  --status-hover-color: var(--primary);
+  --btn-color: linear-gradient(90deg, var(--primary), var(--secondary));
+  --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
+  --selcted-color: var(--primary);
+  --selected-border: 3px solid var(--primary);
+}
+
+body[data-theme='dark'] {
+  --background-color: var(--black);
+  --color: var(--white);
+  --fill: var(--primary);
+  --border: var(--border-color);
+  --btn-color: linear-gradient(90deg, var(--primary), var(--secondary));
+  --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
+  --selcted-color: var(--primary);
+  --selected-border: 3px solid var(--primary);
 }
 
 ::-webkit-scrollbar {
