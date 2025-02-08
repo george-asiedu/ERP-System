@@ -1,3 +1,5 @@
+import {Actions} from '@ngrx/effects';
+
 export interface Signup {
   name: string;
   email: string;
@@ -28,15 +30,17 @@ export interface VerifyResetCode {
   verificationCode: string;
 }
 
-export interface RefreshToken {
-  refreshToken: string;
-}
-
 export interface SigninResponse {
   message: string;
   data: {
     accessToken: string;
     refreshToken: string;
+    user: {
+      email: string;
+      name: string;
+      role: string;
+      isVerified: boolean;
+    };
   }
 }
 
@@ -61,4 +65,9 @@ export interface RefreshTokenResponse {
     accessToken: string;
     refreshToken: string;
   }
+}
+
+export enum Roles {
+  Admin = 'Admin',
+  Employee = 'Employee',
 }
