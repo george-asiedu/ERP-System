@@ -1,5 +1,3 @@
-import {Actions} from '@ngrx/effects';
-
 export interface Signup {
   name: string;
   email: string;
@@ -40,6 +38,7 @@ export interface SigninResponse {
       name: string;
       role: string;
       isVerified: boolean;
+      image: null;
     };
   }
 }
@@ -47,11 +46,15 @@ export interface SigninResponse {
 export interface SignupResponse {
   message: string;
   data: {
-    id: number;
-    name: string;
-    email: string;
-    role: string;
-    isVerified: boolean;
+    user: {
+      id: number;
+      name: string;
+      email: string;
+      role: string;
+      isVerified: boolean;
+      image: null;
+    },
+    token: string;
   }
 }
 
