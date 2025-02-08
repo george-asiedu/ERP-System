@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   public twoFactorAuthentication(user: TwoFactorAuth, token: string) {
-    return this.http.post<AuthResponse>(`${this.appUrl}/verify-2fa?token=${token}`, user);
+    return this.http.post<AuthResponse>(`${this.appUrl}/verify-account?token=${token}`, user);
   }
 
   public forgotPassword(user: ForgotPassword) {
