@@ -17,16 +17,18 @@ export const getRefreshToken = (state: AuthState): string | null => {
   return null;
 };
 
+export const getUser = (state: AuthState) => {
+  if (state.data?.type === 'signin') {
+    return state.data.response.data.user;
+  }
+  return null;
+}
+
 export const selectIsLoading = createSelector(
   authSelector,
   (state) => state.isLoading
 );
 
-export const selectError = createSelector(
-  authSelector,
-  (state) => state.error
-);
-
 export const selectAccessToken = createSelector(authSelector, getAccessToken);
-
 export const selectRefreshToken = createSelector(authSelector, getRefreshToken);
+export const selectUser = createSelector(authSelector, getUser);
