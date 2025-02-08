@@ -10,5 +10,10 @@ export const routes: Routes = [
     loadChildren: () => import('./shared/shared.module')
       .then(m => m.SharedModule),
     canActivate: [authGuard]
-  }
+  },
+  { path: 'admin',
+    loadChildren: () => import('./admin/admin.module')
+      .then(m => m.AdminModule),
+    canActivate: [authGuard]
+  },
 ];
