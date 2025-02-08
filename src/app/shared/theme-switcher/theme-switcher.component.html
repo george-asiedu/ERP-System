@@ -4,8 +4,14 @@
   [attr.data-active-theme]=" isDark ? 'dark' : 'light' "
 >
   @if (isDark) {
-    <img src="icon-dark-mode.svg" alt="icon-dark-mode">
+    <span class="row">
+      <img src="icon-dark-mode.svg" alt="icon-dark-mode">
+      <p>Dark Mode</p>
+    </span>
   } @else {
-    <img src="icon-light-mode.svg" alt="icon-light-mode">
+    <span class="row">
+      <img src="icon-light-mode.svg" alt="icon-light-mode">
+      <p>Light Mode</p>
+    </span>
   }
 </button>
