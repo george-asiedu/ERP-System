@@ -8,6 +8,7 @@
   --success: #039855;
   --disable-color: #757575;
   --form-background: #f9fafb;
+  --dash-color: #F8F9FD;
 }
 
 * {
@@ -129,6 +130,7 @@ body[data-theme='light'] {
   --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
   --selcted-color: var(--primary);
   --selected-border: 3px solid var(--primary);
+  --dashboard-color: var(--dash-color);
 }
 
 body[data-theme='dark'] {
@@ -140,6 +142,7 @@ body[data-theme='dark'] {
   --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
   --selcted-color: var(--primary);
   --selected-border: 3px solid var(--primary);
+  --dashboard-color: var(--black);
 }
 
 ::-webkit-scrollbar {
