@@ -3,6 +3,13 @@ import {AuthState} from './auth.state';
 
 export const authSelector = createFeatureSelector<AuthState>('Auth');
 
+export const getSignupToken = (state: AuthState): string | null => {
+  if (state.data?.type === 'signup') {
+    return state.data.response.data.token;
+  }
+  return null;
+};
+
 export const getAccessToken = (state: AuthState): string | null => {
   if (state.data?.type === 'signin') {
     return state.data.response.data.accessToken;
@@ -32,3 +39,4 @@ export const selectIsLoading = createSelector(
 export const selectAccessToken = createSelector(authSelector, getAccessToken);
 export const selectRefreshToken = createSelector(authSelector, getRefreshToken);
 export const selectUser = createSelector(authSelector, getUser);
+export const selectSignupToken = createSelector(authSelector, getSignupToken);

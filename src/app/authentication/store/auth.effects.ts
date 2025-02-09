@@ -6,7 +6,7 @@ import {mapResponse} from '@ngrx/operators';
 import {filter, switchMap, withLatestFrom} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {AuthState} from './auth.state';
-import {selectAccessToken} from './auth.selectors';
+import {selectAccessToken, selectSignupToken} from './auth.selectors';
 
 export const signupEffect = createEffect(
   (actions$ = inject(Actions), authService = inject(AuthService)) => {
@@ -48,7 +48,7 @@ export const twoFactorAuthEffect = createEffect(
   ) => {
     return actions$.pipe(
       ofType(authActions.verifyAccount),
-      withLatestFrom(store.select(selectAccessToken)),
+      withLatestFrom(store.select(selectSignupToken)),
       filter(([, token]) => !!token),
       switchMap(([{twoFactorCode}, token]) =>
         authService.twoFactorAuthentication(twoFactorCode, token as string).pipe(
