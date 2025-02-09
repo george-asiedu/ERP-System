@@ -9,6 +9,7 @@
   --disable-color: #757575;
   --form-background: #f9fafb;
   --dash-color: #F8F9FD;
+  --active-nav: #F2F7FF;
 }
 
 * {
@@ -128,7 +129,7 @@ body[data-theme='light'] {
   --status-hover-color: var(--primary);
   --btn-color: linear-gradient(90deg, var(--primary), var(--secondary));
   --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
-  --selcted-color: var(--primary);
+  --selected-color: var(--active-nav);
   --selected-border: 3px solid var(--primary);
   --dashboard-color: var(--dash-color);
 }
@@ -137,11 +138,12 @@ body[data-theme='dark'] {
   --background-color: var(--black);
   --color: var(--white);
   --fill: var(--primary);
+  --filter: brightness(0) invert(1);
   --border: var(--border-color);
   --btn-color: linear-gradient(90deg, var(--primary), var(--secondary));
   --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
-  --selcted-color: var(--primary);
-  --selected-border: 3px solid var(--primary);
+  --selected-color: var(--active-nav);
+  --selected-border: 5px solid var(--primary);
   --dashboard-color: var(--black);
 }
 
