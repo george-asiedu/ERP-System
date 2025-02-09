@@ -38,7 +38,7 @@ export interface SigninResponse {
       name: string;
       role: string;
       isVerified: boolean;
-      image: null;
+      image: string | null;
     };
   }
 }

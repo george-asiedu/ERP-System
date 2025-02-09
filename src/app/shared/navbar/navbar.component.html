@@ -1,0 +1,38 @@
+<div class="navbar-container">
+  <img src="notifications.svg" class="notification" alt="notifications_image">
+  <div class="account" (click)="toggleDropdown()">
+    <div class="initials" *ngIf="!image">
+      {{userInitials}}
+    </div>
+    <div class="initials" *ngIf="image">
+      <img [src]="image" class="profile_img" alt="profile_image">
+    </div>
+    <span>
+      <h5>{{name}}</h5>
+      <p>{{role}}</p>
+    </span>
+    <img src="chevron_down.svg" alt="chevron_down_image">
+  </div>
+  <div class="dropdown" *ngIf="isDropdownOpen">
+    <div
+      routerLink="/profile"
+      class="row"
+      (click)="profile()"
+    >
+      <img src="profile.svg" alt="profile_image">
+      <h4>Profile</h4>
+    </div>
+    <div
+      (click)="settings()"
+      routerLink="settings/{{name}}"
+      class="row"
+    >
+      <img src="settings.svg" alt="settings_image">
+      <h4>Settings</h4>
+    </div>
+    <div (click)="logout()" class="row">
+      <img src="logout.svg" alt="logout_image">
+      <h4>Log out</h4>
+    </div>
+  </div>
+</div>
