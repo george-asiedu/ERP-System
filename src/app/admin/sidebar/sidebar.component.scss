@@ -1,0 +1,95 @@
+@use '../../../styles.scss' as *;
+
+.sidebar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @include flex-column;
+  gap: 1.125remrem;
+  padding: 1.5rem 0;
+  box-shadow: 0 0 1px var(--border);
+
+  .logo {
+    @include justify-center;
+
+    img {
+      max-width: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  .sidebar-nav {
+    @include flex-column;
+    box-shadow: 0 0 1px var(--border);
+    transition: all 0.5s ease-in-out;
+
+    .nav-link {
+      @include flex-center;
+      gap: 0.5rem;
+      padding: 0.438rem 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--selected-color);
+        border-right: var(--selected-border);
+        font-weight: bold;
+      }
+
+      img {
+        width: 1.25rem;
+
+        &:hover {
+          filter: invert(53%) sepia(56%) saturate(529%) hue-rotate(162deg);
+        }
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: var(--color);
+      }
+    }
+  }
+
+  .chevron_img {
+    cursor: pointer;
+    background: var(--background-color);
+    position: absolute;
+    top: 10%;
+    right: -6%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    @include justify-center;
+
+    img {
+      width: 70%;
+      filter: var(--filter);
+    }
+  }
+}
+
+.sidebar-container.collapsed {
+  width: 5.625rem;
+
+  .nav-link {
+    justify-content: center;
+    p {
+      display: none;
+    }
+  }
+}
+
+.active {
+  background-color: var(--selected-color);
+  border-right: var(--selected-border);
+  transition: all 0.5s ease-in-out;
+
+  p {
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  img {
+    filter: invert(53%) sepia(56%) saturate(529%) hue-rotate(162deg);
+  }
+}
