@@ -1,0 +1,127 @@
+<div class="sidebar-container" [class.collapsed]="isSidebarCollapsed">
+  <div class="logo">
+    <img src="Logo.svg" alt="logo_image">
+  </div>
+  <div class="sidebar-nav">
+    <div
+      class="nav-link"
+      routerLink="/admin"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="dashboard.svg" alt="dashboard_img">
+      <p>Dashboard</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/staff"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="Staff_nav.svg" alt="staff_img">
+      <p>Staff</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/payment-voucher"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="Staff_nav.svg" alt="payment_voucher_img">
+      <p>Payment Voucher</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/payroll"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="payroll.svg" alt="payroll_img">
+      <p>Payroll</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/memom"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="memo.svg" alt="memo_img">
+      <p>Memo</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/circulars"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="circulars.svg" alt="circulars_img">
+      <p>Circulars</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/maintenance"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="maintenance.svg" alt="maintenance_img">
+      <p>Maintenance</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/logistics"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="logistics.svg" alt="logistics_img">
+      <p>Logistics</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/office-budget"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="budget.svg" alt="budget_img">
+      <p>Office Budget</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/stocks-and-inventory"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="stock.svg" alt="stock_img">
+      <p>Stocks and Inventory</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/notifications"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="notifications.svg" alt="notifications_img">
+      <p>Notifications</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/capacity-building"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="capacity_building.svg" alt="capacity_building_img">
+      <p>Capacity Building</p>
+    </div>
+    <div
+      class="nav-link"
+      routerLink="/procurements"
+      routerLinkActive="active-nav"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <img src="procurement.svg" alt="procurement_img">
+      <p>Procurements</p>
+    </div>
+  </div>
+  <span (click)="toggleSidebar()" class="chevron_img">
+    <img src="chevron-left.svg" alt="chevron-left_img">
+  </span>
+</div>
