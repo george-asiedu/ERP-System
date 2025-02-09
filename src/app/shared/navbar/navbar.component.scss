@@ -1,11 +1,16 @@
 @use '../../../styles.scss' as *;
 
 .navbar-container {
-  width: 5rem;
+  width: 6.25rem;
   background-color: transparent;
   border: none;
   @include flex-center;
   gap: 0.5rem;
+
+  .notification {
+    width: 1.5rem;
+    filter: var(--filter);
+  }
 
   img {
     cursor: pointer;
@@ -32,12 +37,27 @@
         object-fit: cover;
       }
     }
+
+    .column {
+      @include flex-column;
+      gap: 0.2rem;
+      font-size: 0.875rem;
+
+      p {
+        font-size: 0.75rem;
+      }
+    }
+
+    .chevron {
+      width: 1rem;
+      filter: var(--filter);
+    }
   }
 
   .dropdown {
     width: 18.75rem;
     position: absolute;
-    top: 10%;
+    top: 13%;
     right: 0.25rem;
     z-index: 10;
     background: var(--background-color);
@@ -52,8 +72,9 @@
       padding: 0.625rem 1rem;
       border-bottom: 1px solid var(--border);
 
-      h4 {
+      p {
         font-size: 0.875rem;
+        color: var(--color);
       }
 
       img {
