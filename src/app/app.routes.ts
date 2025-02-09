@@ -12,10 +12,10 @@ export const routes: Routes = [
       .then(m => m.SharedModule),
     canActivate: [authGuard]
   },
-  { path: 'admin',
+  { path: 'admin-dashboard',
     loadChildren: () => import('./admin/admin.module')
       .then(m => m.AdminModule),
-    // canActivate: [authGuard],
-    // data: { roles: [Roles.Admin] }
+    canActivate: [authGuard],
+    data: { roles: [Roles.Admin] }
   },
 ];

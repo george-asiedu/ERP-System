@@ -7,15 +7,16 @@
   overflow: hidden;
 
   .sidebar {
-    width: 22%;
+    width: 20%;
     height: 100vh;
     background: var(--background-color);
   }
 
   .outlet {
-    width: 78%;
+    width: 80%;
     height: 100vh;
     background: var(--dashboard-color);
     overflow-y: auto;
+    padding: 1.25rem 2rem;
   }
 }

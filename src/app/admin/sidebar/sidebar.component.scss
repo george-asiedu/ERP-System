@@ -13,14 +13,13 @@
     @include justify-center;
 
     img {
-      max-width: 2.5rem;
+      max-width: 2.813rem;
       margin-bottom: 1.25rem;
     }
   }
 
   .sidebar-nav {
     @include flex-column;
-    box-shadow: 0 0 1px var(--border);
     transition: all 0.5s ease-in-out;
 
     .nav-link {
@@ -31,15 +30,17 @@
 
       &:hover {
         background-color: var(--selected-color);
-        border-right: var(--selected-border);
+        color: var(--black);
+        border-left: var(--selected-border);
         font-weight: bold;
       }
 
       img {
         width: 1.25rem;
+        filter: var(--filter);
 
         &:hover {
-          filter: invert(53%) sepia(56%) saturate(529%) hue-rotate(162deg);
+          filter: var(--filter);
         }
       }
 
@@ -52,9 +53,9 @@
 
   .chevron_img {
     cursor: pointer;
-    background: var(--background-color);
+    background: var(--selected-color);
     position: absolute;
-    top: 10%;
+    top: 8%;
     right: -6%;
     width: 2rem;
     height: 2rem;
@@ -79,17 +80,17 @@
   }
 }
 
-.active {
+.active-nav {
   background-color: var(--selected-color);
-  border-right: var(--selected-border);
+  border-left: var(--selected-border);
   transition: all 0.5s ease-in-out;
 
   p {
-    color: var(--color);
+    color: var(--black);
     font-weight: bold;
   }
 
   img {
-    filter: invert(53%) sepia(56%) saturate(529%) hue-rotate(162deg);
+    filter: var(--filter);
   }
 }
