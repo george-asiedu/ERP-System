@@ -130,7 +130,7 @@ body[data-theme='light'] {
   --btn-color: linear-gradient(90deg, var(--primary), var(--secondary));
   --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
   --selected-color: var(--active-nav);
-  --selected-border: 3px solid var(--primary);
+  --selected-border: 5px solid var(--primary);
   --dashboard-color: var(--dash-color);
 }
 
@@ -142,8 +142,8 @@ body[data-theme='dark'] {
   --border: var(--border-color);
   --btn-color: linear-gradient(90deg, var(--primary), var(--secondary));
   --btn-hover: linear-gradient(90deg, var(--secondary), var(--primary));
-  --selected-color: var(--active-nav);
-  --selected-border: 5px solid var(--primary);
+  --selected-color: var(--primary);
+  --selected-border: 5px solid var(--secondary);
   --dashboard-color: var(--black);
 }
 
